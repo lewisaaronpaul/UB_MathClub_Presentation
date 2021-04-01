@@ -19,6 +19,8 @@ import numpy as np
 # import matplotlib.pylab as plt
 # import seaborn as sns
 
+# import PIL
+
 # import cv2
 
 COUNT = 0
@@ -86,4 +88,4 @@ def load_img():
 
 
 if __name__ == '__main__':
-	app.run(debug=False)
+	app.run(debug=True)
