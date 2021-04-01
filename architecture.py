@@ -10,15 +10,16 @@ from numpy import set_printoptions
 
 import tensorflow as tf
 import tensorflow_hub as hub
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+# from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 
-import pandas as pd
+# import pandas as pd
 import numpy as np
-import matplotlib.pylab as plt
-import seaborn as sns
-import cv2
+# import matplotlib.pylab as plt
+# import seaborn as sns
+
+# import cv2
 
 COUNT = 0
 app = Flask(__name__)
@@ -85,5 +86,4 @@ def load_img():
 
 
 if __name__ == '__main__':
-	app.run(debug=False)
-
+	app.run(debug=True)
