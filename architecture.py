@@ -77,5 +77,5 @@ def load_img(filename):
   return send_from_directory(image_folder, filename)
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(debug=False)
 
