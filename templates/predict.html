@@ -19,7 +19,7 @@
             <h1>Here Goes The Prediction!</h1>
         </div>
         <br>
-        <img src="{{url_for('load_img')}}" alt='Selected Image'>
+        <img src="{{url_for('load_img', filename = image_name)}}" alt='Selected Image'>
         <br>
         <p>
             <h3>The prediction: {{the_prediction}}</h3>
