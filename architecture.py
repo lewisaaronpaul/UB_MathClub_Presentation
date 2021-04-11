@@ -4,21 +4,16 @@ import os
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template, jsonify, request, send_from_directory
 from werkzeug.utils import secure_filename
-#from gevent.pywsgi import WSGIServer
 
 from numpy import set_printoptions
 
 import tensorflow as tf
 import tensorflow_hub as hub
-# from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 
-# import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
-# import seaborn as sns
-# import cv2
 
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 1
@@ -42,7 +37,6 @@ def classify_image(img_path, model, labels):
   # Make prediction
   prediction = model.predict(img[np.newaxis,...])
   prediction_class = np.argmax(prediction[0], axis = -1)
-  print(f'Prediction: {labels[prediction_class].title()}')
   return labels[prediction_class].title()
 
 image_folder = os.path.join('static', 'images')
@@ -55,16 +49,12 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
   label_list = ['altar', 'apse', 'bell_tower', 'column', 'dome(inner)', 'dome(outer)', 'flying_buttress', 'gargoyle', 'stained_glass', 'vault']
-  print(label_list)
 
   if request.method == "POST":
     img = request.files["picFile"]
-    print(f"The selected picture is: {img}")
-    print(f"The img.filename: {img.filename}")
     filename = secure_filename(img.filename)
     pic_path = os.path.join(app.config['UPLOAD_FLOADER'], filename)
     img.save(pic_path)
-    print(f"The picture path is: {pic_path}")
     # Predict with the MobileNet model
     the_prediction = classify_image(pic_path, modelMobileNet, label_list)
   else:
