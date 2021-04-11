@@ -10,15 +10,15 @@ from numpy import set_printoptions
 
 import tensorflow as tf
 import tensorflow_hub as hub
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+# from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 
-import pandas as pd
+# import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
-import seaborn as sns
-import cv2
+# import seaborn as sns
+# import cv2
 
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 1
