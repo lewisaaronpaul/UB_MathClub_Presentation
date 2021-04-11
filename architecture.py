@@ -25,7 +25,7 @@ set_printoptions(precision=4, suppress=True)
 # Read in the model with MobileNet
 modelMobileNet = tf.keras.models.load_model(('model/architecture_cnn_MobileNet_0.93.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 
-print(modelMobileNet.summary())
+# print(modelMobileNet.summary())
 
 # Model created with MobileNet
 def classify_image(img_path, model, labels):
